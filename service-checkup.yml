@@ -1,0 +1,34 @@
+---
+- hosts: all
+  tasks:
+     - name: check service sshd [ok = RUNNING ; changed = DEAD]
+       service:
+         name: sshd
+         enabled: true
+         state: started
+
+     - name: check service apache2 [ok = RUNNING ; changed = DEAD]
+       service:
+         name: apache2
+         enabled: true
+         state: started
+
+     - name: check service mysql [ok = RUNNUNG ; changed = DEAD]
+       service:
+         name: mysql
+         enabled: true
+         state: started
+
+     - name: check service ufw [ok = RUNNING ; changed = DEAD]
+       service:
+         name: ufw
+         enabled: true
+         state: started
+
+    # [TEMPLATE FOR ANY OTHER SERVICES TO CHECK THAT ARE ON STATRTUP]
+
+    # - name: check [service name]
+    #   service:
+    #     name: [name of service (ex. mysql, ufw, apache2, etc.)]
+    #     enabled: true 
+    #     state: started
