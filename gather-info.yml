@@ -1,0 +1,43 @@
+
+---
+- name: Info Gathering
+  hosts: all
+  tasks:
+
+
+    # Display Distribution Info
+    - debug:
+        msg:
+          - " Distribution : {{ ansible_distribution }} "
+          - " Major Distribution Number : {{ ansible_distribution_major_version }} "
+          - " Distribution Version : {{ ansible_distribution_version }} "
+          - " Distribution Release : {{ ansible_distribution_release }} "
+          - " Distribution file path : {{ ansible_distribution_file_path }} "
+          - " Distribution file variety : {{ ansible_distribution_file_variety }} "
+
+    # Network info
+    - debug:
+        msg:
+          - " IP Address : {{ ansible_default_ipv4['address'] }} "
+          - " Alias : {{ ansible_default_ipv4['alias'] }} "
+          - " Broadcast : {{ ansible_default_ipv4['broadcast'] }} "
+          - " Gateway : {{ ansible_default_ipv4['gateway'] }} "
+          - " Interface : {{ ansible_default_ipv4['interface'] }} " 
+          - " Mac Address : {{ ansible_default_ipv4['macaddress'] }} "
+          - " Netmask : {{ ansible_default_ipv4['netmask'] }} "
+          - " Network : {{ ansible_default_ipv4['network'] }} "
+          - " Type : {{ ansible_default_ipv4['type'] }} "
+          - " Default ipv6 info {{ ansible_default_ipv6 }} "
+          - " All ipv4 Addresses {{ ansible_all_ipv4_addresses }} "
+          - " All ipv6 Addresses {{ ansible_all_ipv6_addresses }} "
+
+
+    # Environment Info
+    - debug:
+        msg:
+         - " HOME DIR : {{ ansible_env['HOME'] }} "
+         - " LANG : {{ ansible_env['LANG'] }} "
+         - " LOGNAME : {{ ansible_env['LOGNAME'] }} "
+         - " PATH : {{ ansible_env['PATH'] }} "
+         - " PWD : {{ ansible_env['PWD'] }} "
+         - " SHELL : {{ ansible_env['SHELL'] }} "
